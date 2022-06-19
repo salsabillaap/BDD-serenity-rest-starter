@@ -1,6 +1,7 @@
 package alterra.step;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -53,5 +54,24 @@ public class Stepdefs {
                 System.out.println("Tidak sesuai");
                 break;
         }
+    }
+
+    int sisi;
+    String luaspersegi;
+    @Given("{string} persigi is {int}")
+    public void persigiIs(String arg0, int arg1) {
+        sisi = arg1;
+    }
+
+    @When("count {string}")
+    public void count(String arg0) {
+        luaspersegi = arg0;
+    }
+
+    @Then("receive {int} luas persegi")
+    public void receiveLuasPersegi(int hitungluas) {
+        hitungluas = sisi * sisi;
+        luaspersegi = "luas persegi adalah ";
+        System.out.println(luaspersegi + hitungluas);
     }
 }
